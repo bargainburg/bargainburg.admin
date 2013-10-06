@@ -42,12 +42,15 @@ window.onload = function ()
 					$("#list").append('<th> No Coupons </th>');
 				}
                             $.each(data, function(i, item) {
-				$("#list").append('<tr><td width=100px><a href="http://admin.bargainburg.co/temp/coupon.html?id=' + item.id + '">' + item.name + '</a></td><td width=100px>' + parseDate(item.created_at) + '</td><td width=50px align="center"><input type="checkbox" checked="' + !item.hidden + '"></input></td></tr>');	
+				$("#list").append('<tr><td width=100px><a href="http://admin.bargainburg.co/temp/coupon.html?id=' + item.id + '">' + item.name + '</a></td><td width=100px>' + parseDate(item.created_at) + '</td><td width=50px align="center"><input type="checkbox" class = "check" id = "' + item.id + '" checked="' + !item.hidden + '"></input></td></tr>');	
                             });
 			}		
                 });
         });
 
+	$(document).on('click', '.check', function() {
+		alert("Test: " + $(this).attr('id'));
+	});
 
 }
 
