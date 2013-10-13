@@ -6,20 +6,21 @@ window.onload = function()
 
 		var json = ConvertFormToJSON(form,false);
 		$.ajax({
-			url: 'http://api.bargainburg.co/v1/merchants/',
+			url: 'http://api.bargainburg.co/v1/login/',
 			type: 'POST',
-			data.json,
+			data: json,
 			dataType: 'json',
 			xhrFields:
 				{withCredentials: true},
 			crossDomain: true,
 			success: function(result) {
-				if (result != null)
-				{
-					var mid = result.merchant_id;
+				alert("yolo");
+				if (result != null) {
+					var mid = result.merchant_id; 
 					window.location = 'http://admin.bargainburg.co/panel.html?id=' + mid;
+					alert(result.responseText);
 				}
-				return true;
+				//return true;
 			},
 			error: function (result) {
 				alert(result.responseText);

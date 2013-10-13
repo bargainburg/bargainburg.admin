@@ -32,7 +32,7 @@ window.onload = function ()
 	//do http get for coupon list
         $(document).ready(function() {
               $.ajax({
-			url: 'http://api.bargainburg.co/v1/merchants/' + final_id + '/coupons',
+			url: URL+'merchants/' + final_id + '/coupons',
 			type: 'GET',
 			xhrFields: 
 				{withCredentials: true},
@@ -43,8 +43,13 @@ window.onload = function ()
 						$("#list").append('<th> No Coupons </th>');
 					}
                            		$.each(data, function(i, item) {
-						$("#list").append('<tr><td width=100px><a href="http://admin.bargainburg.co/coupon.html?id=' + item.id + '&merchantid=' + final_id + '">' + item.name + '</a></td><td width=100px>' + parseDate(item.created_at) + '</td><td width=50px align="center"><input type="checkbox" class = "check" id = "' + item.id + '" checked="' + !item.hidden + '"></input></td></tr>');	
-                            	});
+						if(item.hidden) {
+							$("#list").append('<tr><td width=100px><a href="http://admin.bargainburg.co/coupon.html?id=' + item.id + '&merchantid=' + final_id + '">' + item.name + '</a></td><td width=100px>' + parseDate(item.created_at) + '</td><td width=50px align="center"><input type="checkbox" class = "check" id = "' + item.id + '"></input></td></tr>');
+						}
+						else {
+							$("#list").append('<tr><td width=100px><a href="http://admin.bargainburg.co/coupon.html?id=' + item.id + '&merchantid=' + final_id + '">' + item.name + '</a></td><td width=100px>' + parseDate(item.created_at) + '</td><td width=50px align="center"><input type="checkbox" class = "check" id = "' + item.id + '" checked="' + !(item.hidden) + '"></input></td></tr>');	
+                            			}
+					});
 				}
 				return true;
 			},
@@ -60,10 +65,10 @@ window.onload = function ()
 		
 		$.ajax({
 			url: 'http://api.bargainburg.co/v1/coupons/'+$(this).attr('id'),
-			type: 'PUT',
+			type: 'POST',
 			xhrFields: 
 				{withCredentials: true},
-			data: {hidden: !$(this).is(":checked")},
+			data: {hidden: !$(this).is(":checked"), _method: 'patch'},
 			contentType: 'application/x-www-form-urlencoded',
 			success: function(result) {
 				alert("success");

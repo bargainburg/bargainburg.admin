@@ -142,6 +142,7 @@ function ConvertFormToJSON(form, isPatch){
     else
     {
 	 json['coupon[merchant_id]'] = mid;
+	 json['coupon[hidden]'] = true;
     }
     
     return json;
