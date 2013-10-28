@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add A New Coupon | BargainBurg</title>
+
+	<link rel="stylesheet" type="text/css" href="../../../_system/lib/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/lib/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/lib/font-awesome/css/font-awesome-ie7.min.css" />
+
+	<!-- GLOBAL (CROSS MOBILE / ADMIN) STYLES -->
+	<link rel="stylesheet" type="text/css" href="../../../_system/css/global_nav.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/css/global_logo.css" />
+
+	<!-- CUSTOM STYLES -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../../../_system/css/BB_disableForm.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/css/style.css" />
+
+	<script type="text/javascript" src="../../../_system/lib/jquery/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="../../../_system/lib/jquery-cookie/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../../_system/lib/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">
+				<div class="logo-wrapper">
+					<div class="logo-outline">
+						<div class="logo-slides">
+						
+							<div class="logo-slide logo-slide-money">
+								<div class="logo-slide-inner">
+									<i class="icon-money"></i>
+								</div>
+							</div><div class="logo-slide logo-slide-bargainburg">
+								<div class="logo-slide-inner">
+									BB
+								</div>
+							</div><div class="logo-slide logo-slide-local">
+								<div class="logo-slide-inner">
+									<i class="icon-map-marker"></i>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				<span class="logo-subsystem-name">
+					BargainBurg // Dashboard
+				</span>
+			</a>
+		</div>
+
+			<!-- NAVIGATION LINKS -->
+			<div class="collapse navbar-collapse navbar-right" id="menu">
+				<ul class="nav navbar-nav">
+					<li class="active">
+                        <a href="../../">
+                            <i class="icon-dashboard"></i> Dashboard
+                        </a>
+                   	<li>
+                   	<li>
+                        <a href="../../settings/">
+                            <i class="icon-cogs"></i> Settings
+                        </a>
+                   	<li>
+               		<li class="nav-link-join">
+	                    <a href="../../../">
+	                        <i class="icon-lock"></i> Logout
+	                    </a>
+                   	<li>
+				</ul>
+			</div>
+			<!-- /NAVIGATION-LINKS -->
+	</nav>
+
+	<!-- CONTENT-WRAPPER -->
+	<div class="content-wrapper">
+		
+		<!-- HEADER -->
+		<header>
+			<div class="header-inner">
+				<div class="container">
+					<h1>Edit Coupon: <em id="coupon_name"></em></h1>
+					<p>
+						Make changes to this coupon such as changing its valid duration, 
+						name, description, and more.
+					</p>
+				</div>
+			</div>
+		</header>
+		<!-- /HEADER -->
+
+		<section>
+			<div class="container">
+		
+				<div class="row-fluid">
+					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="form-wrapper">
+						
+						<div id="form-coupon-edit-error"></div>
+
+						<form id="form-coupon-edit" role="form" class="form-horizontal">
+							
+							<!-- Name -->
+							<div class="form-group">
+						    	<label for="name" class="col-lg-2 control-label">Name*</label>
+							    <div class="col-lg-10">
+							      	<input name="coupon[name]" type="text" class="form-control" id="name" placeholder="Example: 50% Off Every Game Day" />
+							    </div>
+						  	</div>
+
+						  	<!-- Category -->
+							<div class="form-group">
+						    	<label for="category" class="col-lg-2 control-label">Category*</label>
+							    <div class="col-lg-10">
+							      	<select name="coupon[category_id]" id="category" class="form-control">		
+							      		<option value="0">Automobile</option>
+										<option value="1">Bookstore</option>
+										<option value="2">Clothing</option>
+										<option value="3">Craft</option>
+										<option value="4">Food</option>
+										<option value="5">Hardware</option>
+										<option value="6">Personal Care</option>
+										<option value="7">Pet</option>
+										<option value="8">Recreation</option>
+										<option value="9">Shipping</option>
+										<option value="10">Sports/Fitness</option>
+									</select>
+							    </div>
+						  	</div>
+						  	<!-- Dates -->
+							<div class="form-group">
+						    	<label for="begin_date" class="col-lg-2 control-label">Starting*</label>
+							    <div class="col-lg-10">
+								    <input name="coupon[begin_date]" type="date" class="form-control" id="begin_date" placeholder="Start Date" />
+							    </div>
+						  	</div>
+						  	<div class="form-group">
+						    	<label for="end_date" class="col-lg-2 control-label">Ending*</label>
+							    <div class="col-lg-10">
+							      	
+							      	<input name="coupon[end_date]" type="date" class="form-control" id="end_date" placeholder="End Date" />
+								    
+							    </div>
+						  	</div>
+
+						  	<!-- IMAGE -->
+						  	<div class="form-group">
+						    	<label for="begin_date" class="col-lg-2 control-label">Image</label>
+							    <div class="col-lg-10">
+							      	
+									<div class="panel-group" id="accordion">
+										<div class="panel panel-default">
+									    	<div class="panel-heading">
+										      	<h4 class="panel-title">
+										        	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#image_upload">
+										          		Click Here to Upload an Image
+										        	</a>
+										      	</h4>
+									    	</div>
+										    <div id="image_upload" class="panel-collapse collapse">
+										      	<div class="panel-body">
+													<p style="text-align:center">
+														<img id="preview" src="../../../_system/img/noImage.png" height="100px" width="300px" /><br>
+													</p>
+													
+													<input type="file" id="image" name="coupon[image]" class="form-control" onchange="previewImage(this)" accept="image/*"/>
+
+													<!-- PREVIEW SCRIPT -->
+										        	<script type="text/javascript">
+														function previewImage(input) {
+															var preview = document.getElementById('preview');
+															if (input.files && input.files[0]) {
+																var reader = new FileReader();
+																reader.onload = function (e) {
+																	preview.setAttribute('src', e.target.result);
+																}
+																reader.readAsDataURL(input.files[0]);
+															}
+															else {
+																preview.setAttribute('src', '../../../_system/img/noImage.png');
+															}
+														}
+													</script>
+										     	</div>
+									   		</div>
+									  	</div>
+									</div>
+
+							    </div>
+						  	</div>
+
+						  	<!-- Description -->
+							<div class="form-group">
+						    	<label for="coupon_description" class="col-lg-2 control-label">Description*</label>
+							    <div class="col-lg-10">
+							      	<textarea name="coupon[description]" class="form-control" id="coupon_description" placeholder="Describe what the coupon brings to the customer..."></textarea>
+							    </div>
+						  	</div>
+
+
+						  	<div class="form-group">
+						    	<label class="col-lg-2 control-label">&nbsp;</label>
+							    <div class="col-lg-10">
+								    <button type="submit" class="btn btn-success btn-lg">
+								  		<i class="icon-ok"></i> Save &amp; Create Coupon
+								  	</button>
+								  	<button type="reset" class="btn btn-danger btn-lg">
+										<i class="icon-cancel"></i> Cancel
+								  	</button>  
+							    </div>
+						  	</div>
+
+						  	<!-- LOADING COVER -->
+							<div class="BB_disableForm_loading">
+								<i class="icon-spinner icon-spin"></i>
+							</div>
+							<!-- /LOADING COVER -->
+
+						</form>
+
+						
+
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+						
+						<h3>
+							<i class="icon-info-sign"></i> Tips
+						</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium ab cum sit excepturi atque. Amet, placeat, aliquam, id error sint accusamus iste unde non maiores laborum deleniti vero porro dolores!</p>
+						<p>At, labore, excepturi, et, voluptatibus facere error repellendus delectus suscipit accusantium temporibus quam necessitatibus adipisci vel reprehenderit rerum cum molestiae harum numquam possimus neque! Eum, reprehenderit ullam voluptatibus unde distinctio.</p>
+						<p>Amet, corporis facere sequi minima incidunt eaque non et! Velit, totam pariatur dignissimos dolorem impedit enim reiciendis saepe at ex illo inventore iusto delectus omnis neque aut dolor voluptates praesentium.</p>
+						<p>Reprehenderit, totam, quo, cumque, corrupti ratione assumenda consequatur vitae unde quae est quos cum dicta voluptates hic minus doloremque velit voluptatum sapiente odio necessitatibus et modi error harum ea rerum?</p>
+					
+					</div>
+				</div>
+				
+			</div>
+		</section>
+
+		<!-- FOOTER -->
+		<footer>
+			<div class="container">
+				<div class="rights">All Rights Reserved BargainBurg, LLC</div>
+				<div class="credits">Designed by Jonas Weigert</div>
+			</div>
+		</footer>
+		<!-- /FOOTER -->
+
+	<!-- /CONTENT-WRAPPER -->
+	</div>
+
+	<script type="text/javascript" src="../../../_system/js/BB_UIActions.js"></script>
+	<script type="text/javascript" src="../../../_system/js/app_coupon_edit.js"></script>
+
+</body>
+</html>

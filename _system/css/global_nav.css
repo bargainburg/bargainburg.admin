@@ -1,0 +1,94 @@
+/*****************************************************************
+	$GLOBAL_NAV
+	This css defines consistent branding for the navigation
+	consistent across both the mobile / admin section. This 
+	file overrides the default bootstrap 3.0.0 styles.
+
+	VERSION: 		1
+	AUTHOR: 		Jonas Weigert
+	LAST EDIT: 		Sunday October 13th
+	
+	RELEASE READY:  NO
+
+	TESTING: 		Incomplete (mobile cross platform checks necessary)
+	LAST TEST: 		Sunday, October 13th
+
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	DO NOT MODIFY 
+	this css file when in mobile / admin sub systems
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+	FOR MAJOR CHANGES 
+	edit:	/_system/css/global_nav.css
+	and copy the edited file to BOTH mobile and admin css folders.
+	When you made changes to this file (NOT RECOMMENDED) test it 
+	on both subsystems across ALL supported devices BEFORE deploying
+	
+	FOR MINOR CHANGES 
+	override this css in the style.css in mobile / admin 
+	(wherever the tweaks are necessary) 
+******************************************************************/
+
+nav.navbar-default {
+	background: #3498DB;
+	border-bottom: 0px;
+}
+
+	.navbar-default button.navbar-toggle {
+		color:#FFF;
+		border:1px solid #FFF;
+	}
+	.navbar-default button.navbar-toggle:hover,
+	.navbar-default button.navbar-toggle:focus {
+		background: rgba(255,255,255,0.5);
+	}
+	.navbar-default button.navbar-toggle .icon-bar {
+		background:#FFF;
+	}
+
+.navbar-collapse:not(.collapse) {
+	border-top:0px;
+	position: relative;
+	box-shadow: none;
+	border-bottom: 10px solid #3276B1 !important;
+}
+	nav.navbar-default a.navbar-brand {
+		padding:4px 15px 0px 15px;
+		margin-bottom: -2px;
+		text-decoration: none;
+		color:#FFF;
+		line-height: 1.0;
+	}
+		nav a.navbar-brand .logo-wrapper {
+			font-size: 3.5px;
+		}
+			nav a.navbar-brand .logo-wrapper .logo-outline {
+				box-shadow:0px 0px 2px #333;
+			}
+	nav.navbar-default .navbar-nav a {
+		color:#FFF;
+		text-shadow:none;
+	}
+	nav.navbar-default .navbar-nav a:hover {
+		color:rgba(255,255,255,0.8);
+		text-shadow:none;
+	}
+	nav.navbar-default .navbar-nav .active > a {
+		background: rgba(255,255,255,0.8);
+	}
+	nav.navbar-default .navbar-nav .active > a:hover {
+		background: rgba(255,255,255,0.8);
+	}
+
+/* 
+	FIXED NAVIGATION OVERLAP FIX 
+	
+	All page content (including .container elements) 
+	should be wrapped in this element. This ensures 
+	content to be visible at all times and not to 
+	disappear behind fixed navigation bar.
+*/
+.content-wrapper {
+	padding-top: 50px;
+	min-height: 100%;
+}
