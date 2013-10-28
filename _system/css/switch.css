@@ -1,0 +1,84 @@
+.switch {
+  margin: 0px auto;
+  position: relative;
+}
+
+.switch label {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+}
+
+.switch input {
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  opacity: 0;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+
+.switch {
+  width: 100px;
+  height: 36px;
+  overflow: hidden;
+}
+
+.switch label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #C14132;
+  border-radius: 8px;
+}
+
+
+.switch label i {
+  display: block;
+  height: 100%;
+  width: 60%;
+  border-radius: 7px;
+  position: absolute;
+  z-index: 2;
+  right: 40%;
+  top: 0;
+  background: #BBB;
+  -webkit-transition:right 0.1s linear;
+}
+
+.switch label i:before {
+  content: "NO";
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: bold;
+  color: #FFF;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  margin-top: -9px;
+  right: -50%;
+}
+
+.switch input:checked ~ label {
+  background: #1DA78D;
+}
+
+.switch input:checked ~ label i {
+  right: -1%;
+}
+
+.switch input:checked ~ label i:before {
+  content: "YES";
+  right: 110%;
+  color: #FFF;
+}

@@ -1,12 +1,15 @@
-/////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-// GLOBALS
-$.cookie("mid", null);
-$.cookie("cid", null);
 
+/** 
+ * DOCUMENT READY EVENT HANDLER
+ */
 $(document).ready(function () {
         
+    /** 
+     * HANDLE FORM: Login
+     */
     $('#form-login').submit(function (e) {
+    	BB_Log("[Login > Form > Submit]: STARTED");
+
         e.preventDefault();
         e.stopPropagation();
 		
@@ -19,8 +22,9 @@ $(document).ready(function () {
             
 			BB_disableForm("#form-login");
 
+			BB_Log("[Login > Form > Submit > Authorize]: STARTED");
             $.ajax({
-                url: 			'http://api.bargainburg.co/v1/login',
+                url: 			$.cookie("api_url")+'login',
 				type: 			'POST',
                 data: 			{email:user_email, password:user_password},
 				contentType: 	'application/x-www-form-urlencoded',
@@ -28,11 +32,13 @@ $(document).ready(function () {
                 
                 success: function(result) {
 					if (result != null) {
+						BB_Log("[Login > Form > Submit > Authorize]: SUCCESS");
 						$.cookie("mid", result.merchant_id);
 						window.location = './admin/';  
 						return true;
 					}
 					else {
+						BB_Log("[Login > Form > Submit > Authorize]: FAILED (Unexpected API Response)");
 						// UNKNOWN SERVER ERROR (no response)
 						BB_Error("#error_login", "An unexpected server error occurred.");
 					}
@@ -42,6 +48,7 @@ $(document).ready(function () {
 				
 				error: function(xhr, ajaxOptions, thrownError) {
 					// ERROR 
+					BB_Log("[Login > Form > Submit > Authorize]: FAILED (API Login Error)");
 					if(xhr.status == 404) {
 						BB_Error("#error_login", "The server is currently unavailable.");
 					}
@@ -53,6 +60,7 @@ $(document).ready(function () {
             });
         }
 		else {
+			BB_Log("[Login > Form > Submit]: FAILED (Incomplete Form)");
 			// FORM INCOMPLETE
 			BB_Error("#error_login", "Please enter both your account email and password.");
 		}

@@ -3,6 +3,11 @@ function BB_Error(container, message) {
 	$(container).html(error);
 }
 
+function BB_Log(message) {
+	if($.cookie("FLAG_DEBUG") == 1) {
+		console.log(message);
+	}
+}
 
 function BB_disableForm(form_id) {
 	////////////////////////////////////////////////
