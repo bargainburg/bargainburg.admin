@@ -1,0 +1,363 @@
+/*****************************************************************
+	ADMIN CUSTOM CSS
+	This css file defines the custom css behavior for the admin 
+	subsystem. ONLY override any css properties if they are not
+	working when using the correct bootstrap / logo markup.
+	
+	VERSION: 		1
+	AUTHOR(s): 		Jonas Weigert
+	LAST EDIT: 		Sunday, October 17
+
+	RELEASE READY: 	NO
+
+	TESTING: 		Incomplete (mobile cross platform checks necessary)
+	LAST TEST: 		Sunday, October 13th
+*****************************************************************/
+
+/*********************************
+	$FONT
+	apply "Open Sans" to all 
+	elements (Boostrap Overrides)
+*********************************/
+body {
+	font-family: "Open Sans", Helvetica, Tahoma, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Open Sans", Helvetica, Tahoma, sans-serif;
+}
+
+/* 
+	FIX SORT ICON TO POINT UP 
+	icon is used for sales and those
+	should go up not down
+*/
+.icon-sort-by-attributes:before {
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	-o-transform:rotate(180deg);
+	transform:rotate(180deg);
+}
+
+/*****************************
+	$BOOTSTRAP (overrides)
+*****************************/
+.btn {
+	border-radius: 0px;
+}
+
+.btn.btn-info {
+	background: #3498DB;
+	border:1px solid #2980b9;
+}
+.btn.btn-success {
+	background: #1DA78D;
+	border:1px solid #009F86;
+}
+.btn.btn-danger {
+	background: #C14132;
+}
+
+input.form-control {
+	border-radius: 0px;
+	padding-right: 0px;
+}
+
+.alert {
+	color:#FFF;
+	border-radius: 2px;
+	border:0px;
+	background: #DE7B24;
+}
+.alert.alert-danger {
+	background: #B94A48;
+}
+.alert.alert-info {
+	background: #2980B9;
+}
+.alert.alert-success {
+	background: #1DA78D;
+}
+
+/*****************************
+	$NAV-LOGO (overrides)
+*****************************/
+.logo-wrapper {
+	/* 
+		To allow text after the logo 
+		NOT NECESSARY ON MOBILE
+	*/
+	display:inline-block; 
+}
+
+	a.navbar-brand span.logo-subsystem-name {
+		top: -0.75em;
+		display: inline-block;
+		letter-spacing: 1px;
+		font-weight: 200;
+		line-height: 1.0;
+		/* 
+			HACKISH PLACEMENT FIX
+			could be better
+		*/
+		position: relative;
+		color:#FFF;
+	}
+
+/*****************************
+	$NAV-LINKS
+*****************************/
+
+.navbar-nav>li.nav-link-join {
+	background: #C14132;
+}
+.navbar-nav>li.active.nav-link-join a {
+	color: #FFF;
+	background: #7C2F26;
+}
+
+/*****************************
+	$HEADER 
+*****************************/
+header {
+	background-image: url("./img/bg_header.png");
+}
+	header .header-inner {
+		padding:50px 0px 50px 0px;
+		background: rgba(41,128,185,0.6);
+		color:#FFF;
+		font-weight: 200;
+		font-size: 1.2em;
+	}
+header.header-join {
+	/* NO SUTOM STYLES */
+}
+	header.header-join .header-inner {
+		background: rgba(193,65,50,0.6);
+	}
+	header h1,
+	header h2,
+	header h3,
+	header h4,
+	header h5,
+	header h6 {
+		margin: 14px 0px 0px 0px;
+		color: #FFF;
+		font-weight: 200;
+		letter-spacing: 1px;
+	}
+
+	header p {
+		padding: 4px 0px 0px 0px;
+		color:#CCC;
+	}
+	header .indented {
+		padding-left:24px;
+	}
+
+
+/*****************************
+	$SECTION
+*****************************/
+section {
+	padding:40px 0px 50px 0px;
+}
+
+/*****************************
+	$HIGHLIGHT
+*****************************/
+.highlight {
+	padding:20px 0px 30px 0px;
+}
+
+/*****************************
+	$ABOUT
+*****************************/
+.about {
+	padding:0px 0px 20px 0px;
+}
+
+/*****************************
+	$TESTIMONIALS
+*****************************/
+.testimonials {
+	padding: 20px 0px 5px 0px;
+	background: #EFEFEF;
+}
+	.testimonials .customer {
+		/* NO CUSTOM STYLES */
+	}
+		.testimonials .customer .customer-logo {
+			height: 221px;
+			text-align: center;
+		}
+			.testimonials .customer .customer-logo img {
+				max-width: 100%;
+			}
+		.testimonials .customer .customer-logo.hokiehouse {
+			/* NO CUSTOM STYLES NECESSARY */
+		}
+		.testimonials .customer .customer-logo.pks {
+			/* SHIFTS PKS LOGO DOWN TO MATCH LARGEST LOGO */
+			padding: 48px 0px 0px 0px;
+		}
+
+		.testimonials .customer blockquote {
+			border-left: 5px solid #c14132;
+		}
+
+/***************************** 
+	$CONTACT
+*****************************/
+.contact {
+	padding:20px 0px 18px 0px;
+	background: #DDD;
+}
+	.contact h1,
+	.contact h2,
+	.contact h3,
+	.contact h4,
+	.contact h5,
+	.contact h6 {
+		margin-top: 5px;
+	}
+
+	.contact a.btn.btn-block {
+		padding-left: 15px;
+		text-align: left;
+		font-size: 1.4em;
+	}
+	.contact a.btn.btn-block i.icon-phone:before,
+	.contact a.btn.btn-block i.icon-envelope:before {
+		display: inline-block;
+		width: 25px;
+		text-align: center;
+	}
+
+/*****************************
+	$FORM
+*****************************/
+form {
+	padding:14px;
+}
+form.login.BB_disableForm .BB_disableForm_loading {
+	border-radius: 0px !important;
+}
+
+form input.form-control.zip {
+	display: inline-block;
+	width: 50%;
+}
+form input.form-control.form-control-list {
+	margin-bottom: 14px;
+}
+form select.form-select {
+	padding: 6px 12px;
+	height: 34px;
+	border:1px solid #CCCCCC;
+	background-color: #fff;
+	color: #555;
+	vertical-align: middle;
+	font-size: 14px;
+	line-height: 1.428571429;
+}
+form textarea.form-control {
+	padding: 6px 12px;
+	width: 100%;
+	border:1px solid #CCCCCC;
+	color: #555;
+	font-size: 14px;
+	line-height: 1.428571429;
+	border-radius: 0px;
+}
+
+/*****************************
+	$FORM-JOIN
+*****************************/
+form#form-join {
+	padding:20px;
+}
+
+table.table.table-form-contacts {
+	margin-bottom: 0px;
+	border-bottom: 0px;
+}
+.btn.btn-form-contacts {
+	margin-top: 0px;
+	border-top:0px;
+	border-radius: 0px;
+}
+
+/*****************************
+	$FORM-JOIN
+*****************************/
+form#form-login {
+	padding:20px;
+	background: #FFF;
+}
+form#form-login .form-group {
+	margin-bottom: 8px;
+}
+form#form-login .form-group:last-child {
+	margin-bottom: 0px;
+}
+
+/*****************************
+	$FORM-ERROR
+*****************************/
+form .form-error {
+	border:1px solid #990000;
+}
+form textarea.form-control.form-error {
+	border:1px solid #990000;
+}
+/* ALSO CHANGE PLACEHOLDER COLOR WHERE POSSIBLE */
+form .form-error:-moz-placeholder {
+	color:#990000 !important;
+	font-weight: bold;
+}
+form .form-error::-moz-placeholder {
+	color:#990000 !important;
+	font-weight: bold;
+}
+form .form-error:-ms-input-placeholder {
+	color:#990000 !important;
+	font-weight: bold;
+}
+form .form-error::-webkit-input-placeholder {
+	color:#990000 !important;
+	font-weight: bold;
+}
+
+/*****************************
+	$TABLE-COUPONS
+*****************************/
+table.table.table-coupons td {
+	vertical-align: middle;
+}
+table.table.table-coupons tbody tr td:nth-child(4) {
+	text-align: center;
+}
+
+/*****************************
+	$FOOTER
+*****************************/
+footer {
+	padding: 50px 0px 40px 0px;
+	background: #222;
+	color:#FFF;
+}
+	footer .rights {
+		text-transform: uppercase;
+		font-size: 12px;
+	}
+	footer .credits {
+		text-transform: uppercase;
+		font-size: 10px;
+		display:none;
+	}
