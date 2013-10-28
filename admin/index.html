@@ -9,17 +9,21 @@
 	<link rel="stylesheet" type="text/css" href="../_system/lib/font-awesome/css/font-awesome-ie7.min.css" />
 
 	<!-- GLOBAL (CROSS MOBILE / ADMIN) STYLES -->
-	<link rel="stylesheet" type="text/css" href="../_system/css/global/nav.css" />
-	<link rel="stylesheet" type="text/css" href="../_system/css/global/logo.css" />
+	<link rel="stylesheet" type="text/css" href="../_system/css/global_nav.css" />
+	<link rel="stylesheet" type="text/css" href="../_system/css/global_logo.css" />
 
 	<!-- CUSTOM STYLES -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../_system/css/BB_disableForm.css" />
 	<link rel="stylesheet" type="text/css" href="../_system/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../_system/css/switch.css" />
 
 	<script type="text/javascript" src="../_system/lib/jquery/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="../_system/lib/jquery-cookie/jquery.cookie.js"></script>
 	<script type="text/javascript" src="../_system/lib/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- APP CONFIG -->
+	<script type="text/javascript" src="../_system/js/config.js"></script>
 
 </head>
 <body>
@@ -56,7 +60,7 @@
 					</div>
 				</div>
 				<span class="logo-subsystem-name">
-					BargainBurg // Admin Panel
+					BargainBurg // Dashboard
 				</span>
 			</a>
 		</div>
@@ -65,12 +69,12 @@
 			<div class="collapse navbar-collapse navbar-right" id="menu">
 				<ul class="nav navbar-nav">
 					<li class="active">
-                        <a href="../../">
+                        <a href="./">
                             <i class="icon-dashboard"></i> Dashboard
                         </a>
                    	<li>
                    	<li>
-                        <a href="../../settings/">
+                        <a href="./settings/">
                             <i class="icon-cogs"></i> Settings
                         </a>
                    	<li>
@@ -91,8 +95,8 @@
 		<header>
 			<div class="header-inner">
 				<div class="container">
-					<h1>Dashboard</h1>
-					<p>Manage Your Coupons, Campaigns, and More</p>
+					<h1>Dashboard <small style="color:#FFF;">// <span id="merchant_name">Your Business</span></small></h1>
+					<p>Manage Your Business' Coupons, Campaigns, and More</p>
 				</div>
 			</div>
 		</header>
@@ -110,9 +114,11 @@
 
 				<table class="table table-bordered table-coupons">
 					<thead>
+						<th width="1"></th>
 						<th>Coupon</th>
 						<th>From</th>
 						<th>Until</th>
+						<th>Duration</th>
 						<th width="1">Visible</th>
 						<th width="1">Edit</th>
 					</thead>

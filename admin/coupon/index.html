@@ -2,24 +2,27 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Add A New Coupon | BargainBurg</title>
+	<title>Edit Coupon | BargainBurg</title>
 
-	<link rel="stylesheet" type="text/css" href="../../../_system/lib/bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="../../../_system/lib/font-awesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="../../../_system/lib/font-awesome/css/font-awesome-ie7.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../_system/lib/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../_system/lib/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../_system/lib/font-awesome/css/font-awesome-ie7.min.css" />
 
 	<!-- GLOBAL (CROSS MOBILE / ADMIN) STYLES -->
-	<link rel="stylesheet" type="text/css" href="../../../_system/css/global/nav.css" />
-	<link rel="stylesheet" type="text/css" href="../../../_system/css/global/logo.css" />
+	<link rel="stylesheet" type="text/css" href="../../_system/css/global_nav.css" />
+	<link rel="stylesheet" type="text/css" href="../../_system/css/global_logo.css" />
 
 	<!-- CUSTOM STYLES -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="../../../_system/css/BB_disableForm.css" />
-	<link rel="stylesheet" type="text/css" href="../../../_system/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../_system/css/BB_disableForm.css" />
+	<link rel="stylesheet" type="text/css" href="../../_system/css/style.css" />
 
-	<script type="text/javascript" src="../../../_system/lib/jquery/jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="../../../_system/lib/jquery-cookie/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../../../_system/lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../_system/lib/jquery/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="../../_system/lib/jquery-cookie/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../_system/lib/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- APP CONFIG -->
+	<script type="text/javascript" src="../../_system/js/config.js"></script>
 
 </head>
 <body>
@@ -64,18 +67,18 @@
 			<!-- NAVIGATION LINKS -->
 			<div class="collapse navbar-collapse navbar-right" id="menu">
 				<ul class="nav navbar-nav">
-					<li class="active">
-                        <a href="../../">
+					<li>
+                        <a href="../">
                             <i class="icon-dashboard"></i> Dashboard
                         </a>
                    	<li>
                    	<li>
-                        <a href="../../settings/">
+                        <a href="../settings/">
                             <i class="icon-cogs"></i> Settings
                         </a>
                    	<li>
                		<li class="nav-link-join">
-	                    <a href="../../../">
+	                    <a href="../../">
 	                        <i class="icon-lock"></i> Logout
 	                    </a>
                    	<li>
@@ -171,7 +174,7 @@
 										    <div id="image_upload" class="panel-collapse collapse">
 										      	<div class="panel-body">
 													<p style="text-align:center">
-														<img id="preview" src="../../../_system/img/noImage.png" height="100px" width="300px" /><br>
+														<img id="preview" src="../../_system/img/noImage.png" height="100px" width="300px" /><br>
 													</p>
 													
 													<input type="file" id="image" name="coupon[image]" class="form-control" onchange="previewImage(this)" accept="image/*"/>
@@ -260,8 +263,8 @@
 	<!-- /CONTENT-WRAPPER -->
 	</div>
 
-	<script type="text/javascript" src="../../../_system/js/BB_UIActions.js"></script>
-	<script type="text/javascript" src="../../../_system/js/app_coupon_edit.js"></script>
+	<script type="text/javascript" src="../../_system/js/BB_UIActions.js"></script>
+	<script type="text/javascript" src="../../_system/js/app_coupon_edit.js"></script>
 
 </body>
 </html>

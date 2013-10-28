@@ -1,0 +1,174 @@
+/*****************************************************************
+	$GLOBAL_LOGO
+	This css defines consistent branding for the log
+	consistent across both the mobile / admin section. This 
+	file overrides some default bootstrap 3.0.0 styles. 
+
+	VERSION: 	 	1
+	AUTHOR: 		Jonas Weigert
+	LAST EDIT: 		Sunday October 13th
+	
+	RELEASE READY:  NO
+
+	TESTING: 		Incomplete (mobile cross platform checks necessary)
+	LAST TEST: 		Sunday, October 13th
+
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	DO NOT MODIFY 
+	this css file when in mobile / admin subsystems
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+	FOR MAJOR CHANGES 
+	edit:	/_system/css/global_logo.css
+	and copy the edited file to BOTH mobile and admin css folders
+	When you made changes to this file (NOT RECOMMENDED) test it 
+	on both subsystems across ALL supported devices BEFORE deploying
+	
+	FOR MINOR CHANGES 
+	override this css in the style.css in mobile / admin 
+	(wherever the tweaks are necessary) 
+******************************************************************/
+
+@-webkit-keyframes logo-slide {
+	0% {
+		margin-left: -10em;
+	}
+	5% {
+		margin-left: -10em;
+	}
+	33% {
+		margin-left: -20em;
+	}
+	/*32% {
+		margin-left: -10.0em;
+	}*/
+	66% {
+		margin-left: 0.0em;
+	}
+	95% {
+		margin-left: -10em;
+	}
+	100% {
+		margin-left: -10em;
+	}
+}
+@-webkit-keyframes sky-rock {
+	0% {
+		-webkit-transform:rotate(0deg);
+	}
+	33% {
+		-webkit-transform:rotate(-5deg);
+	}
+	66% {
+		-webkit-transform:rotate(5deg);
+	}
+	100% {
+		-webkit-transfrom:rotate(0deg);
+	}
+}
+
+@-webkit-keyframes logo-rock {
+	0% {
+		-webkit-transform:rotate(0deg);
+	}
+	33% {
+		-webkit-transform:rotate(-15deg);
+	}
+	66% {
+		-webkit-transform:rotate(15deg);
+	}
+	100% {
+		-webkit-transform: rotate(0deg);
+	}
+}
+
+.sky.rock {
+	-webkit-transform: translate3d(0,0,0);
+  	-moz-transform: translate3d(0,0,0);
+  	-ms-transform: translate3d(0,0,0);
+  	-o-transform: translate3d(0,0,0);
+  	transform: translate3d(0,0,0);
+	-webkit-animation:sky-rock 10s infinite ease-in-out;
+}
+
+.logo-wrapper {
+	/* 
+		DEFAULT VALUE FOR SHOWCASE
+		should be changed within context with a separate 
+		css selector in /css/style.css this defines the 
+		dimentsions for all logo components nested within 
+		the logo-wrapper
+	*/
+	font-size: 20px; 
+}
+
+.logo-wrapper .logo-outline {
+	width: 10em;
+	height: 10em;
+	background: #FFF;
+	display: inline-block;
+	border-radius: 1em;
+	padding:0em;
+	border: 1em solid rgba(255,255,255,1.0);
+	white-space: nowrap;
+	overflow: hidden;
+	/* FIX FOR BOOTSTRAP BOX SIZING PROBLEM */
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	box-sizing:content-box;
+}
+.logo-wrapper.rock .logo-outline {
+	-webkit-transform: translate3d(0,0,0);
+  	-moz-transform: translate3d(0,0,0);
+  	-ms-transform: translate3d(0,0,0);
+  	-o-transform: translate3d(0,0,0);
+  	transform: translate3d(0,0,0);
+	-webkit-animation:logo-rock ease-in-out 10s infinite;
+}
+	.logo-wrapper .logo-outline .logo-slides {
+		-webkit-transform: translate3d(0,0,0);
+	  	-moz-transform: translate3d(0,0,0);
+	  	-ms-transform: translate3d(0,0,0);
+	  	-o-transform: translate3d(0,0,0);
+	  	transform: translate3d(0,0,0);
+		margin-left: -10em;
+	}
+	*:hover > .logo-wrapper .logo-outline .logo-slides,
+	.logo-wrapper.slide .logo-outline .logo-slides {
+		-webkit-transform: translate3d(0,0,0);
+		-moz-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		-o-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		-webkit-animation:logo-slide ease-in-out 10s infinite;
+	}
+		.logo-wrapper .logo-outline .logo-slides .logo-slide {
+			display: inline-block;
+			width: 10em;
+			height: 10em;
+			background: #bdc3c7;
+			border-radius: 0.5em;
+			text-align: center;
+		}
+		.logo-wrapper .logo-outline .logo-slides .logo-slide.logo-slide-bargainburg {
+			background: #3498DB;
+		}
+		.logo-wrapper .logo-outline .logo-slides .logo-slide.logo-slide-money {
+			background: #16a085;
+		}
+		.logo-wrapper .logo-outline .logo-slides .logo-slide.logo-slide-local {
+			background: #c0392b;
+		}
+			.logo-wrapper .logo-outline .logo-slides .logo-slide .logo-slide-inner {
+				display: inline-block;
+				font-size: 6em;
+				padding-top: 0.35em;
+				font-family: "Helvetica Neue", Helvetica, sans-serif;
+				line-height: 1.0;
+				font-weight: 100;
+				color:#FFF;
+				/* FIX FOR BOOTSTRAP BOX SIZING PROBLEM */
+				-webkit-box-sizing:content-box;
+				-moz-box-sizing:content-box;
+				box-sizing:content-box;
+			}

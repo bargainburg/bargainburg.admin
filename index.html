@@ -9,8 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="./_system/lib/font-awesome/css/font-awesome-ie7.min.css" />
 
 	<!-- GLOBAL (CROSS MOBILE / ADMIN) STYLES -->
-	<link rel="stylesheet" type="text/css" href="./_system/css/global/nav.css" />
-	<link rel="stylesheet" type="text/css" href="./_system/css/global/logo.css" />
+	<link rel="stylesheet" type="text/css" href="./_system/css/global_nav.css" />
+	<link rel="stylesheet" type="text/css" href="./_system/css/global_logo.css" />
 
 	<!-- BB UIActions Style -->
 	<link rel="stylesheet" type="text/css" href="./_system/css/BB_disableForm.css" />
@@ -22,6 +22,9 @@
 	<script type="text/javascript" src="./_system/lib/jquery/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="./_system/lib/jquery-cookie/jquery.cookie.js"></script>
 	<script type="text/javascript" src="./_system/lib/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- APP CONFIG -->
+	<script type="text/javascript" src="./_system/js/config.js"></script>
 
 </head>
 <body>
@@ -66,6 +69,11 @@
 			<!-- NAVIGATION LINKS -->
 			<div class="collapse navbar-collapse navbar-right" id="menu">
 				<ul class="nav navbar-nav">
+					<li class="active">
+                        <a href="./">
+                            <i class="icon-rocket"></i> Welcome
+                        </a>
+                   	<li>
 					<li>
                         <a href="#contact">
                             <i class="icon-comments"></i> Contact
@@ -97,19 +105,21 @@
 							<p>
 								Manage Your Coupons Online, Track Sales, And More. Take Control! 
 							</p>
-							<h3 class="indented">Quickly Drive Sales When You Need</h3>
+							<h3 class="indented">Quickly Drive Sales When You Need To</h3>
 							<p class="indented">
 								Post a Coupon and it becomes available <strong>Immediately</strong>. No Delays.
 							</p>
-							<h3 class="indented">No More Hassle with Expired Coupons</h3>
+							<h3 class="indented">No More Problems with Expired Coupons</h3>
 							<p class="indented">
-								When a coupon campaign expires, it disappears. 
+								When a campaign expires, the coupon disappears. 
 							</p>
 
 						</div>
 						<div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
 							
 							<form id="form-login" class="login" role="form" class="form-horizontal">
+								
+								<p style="color:#333;"><strong>Sign In</strong> <small> To Manage Your Account</small></p>
 
 								<div class="form-group">
 								    <div class="col-lg-12">

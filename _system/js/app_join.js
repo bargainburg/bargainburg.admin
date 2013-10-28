@@ -152,9 +152,6 @@ $(document).ready(function() {
 				elem.toggleClass("form-error", true);
 				elem.attr("placeholder", invalid_fields[field]);
 			}
-
-			// SHOW CUSTOM MODAL ERROR
-
 			// RE-ENABLE FORM
 			BB_enableForm("#form-join");
 			///////////////////////////////////////////////////////
@@ -167,7 +164,7 @@ $(document).ready(function() {
 			// TODO: Implement This
 			///////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////
-			setTimeout(simulateJoinSuccess, 3000);
+			var form_data = {};
 		}
 
 	});
