@@ -15,44 +15,44 @@ $(document).ready(function() {
 	 * HANDLE SUBMIT BUTTON
 	 * attempt to create coupon
 	 */
-	$("#form-coupon-add").bind("submit", function(e) {
-		// STOP DEFAULT BEHAVIOR
-		e.preventDefault();
-		e.stopPropagation();
-
-		// FORM LOADING SCREEN
-		BB_disableForm("#form-coupon-add");
-
-		// ATTEMPT SUMBISSION
-		BB_Log("[Add Coupon > From > Submit]: STARTED");
-		var form_data  = ConvertFormToJSON(this, false);
-		$.ajax({
-    			url: $.cookie("api_url")+'coupons/',
-				type: 'POST',
-				data: form_data,
-				dataType: 'json',
-				xhrFields: {withCredentials: true},
-				crossDomain: true,
-	 			success: function(result) {
-	 				BB_Log("[Add Coupon > From > Submit]: SUCCESS");
-	 				console.log(result);
-	 				var success = '<div class="alert alert-success"><strong>Success!</strong> The coupon has been created.</div><a href="../../" class="btn btn-default"><i class="icon-dashboard"></i> Return to the Dashboard</a>'; 
-	 				$("#form-wrapper").html(success); 		
-				},
-				error: function(result) {
-					BB_Log("[Add Coupon > From > Submit]: FAILED");
-					BB_Log("[Add Coupon > From > Submit]: Result");
-					BB_Log(result);
-					// ERROR 
-					if(result.status == 404) {
-						BB_Error("#form-coupon-add-error", "The server is currently unavailable.");
-					}
-					else {
-						BB_Error("#form-coupon-add-error", result.responseJSON);
-					}
-					BB_enableForm("#form-coupon-add");
-				}
-			});	
+	//$("#form-coupon-add").bind("submit", function(e) {
+	///	// STOP DEFAULT BEHAVIOR
+	//	e.preventDefault();
+	//	e.stopPropagation();
+	//
+	//	// FORM LOADING SCREEN
+	//	BB_disableForm("#form-coupon-add");
+	//
+	//	// ATTEMPT SUMBISSION
+	//	BB_Log("[Add Coupon > From > Submit]: STARTED");
+	//	var form_data  = ConvertFormToJSON(this, false);
+	//	$.ajax({
+    //			url: $.cookie("api_url")+'coupons/',
+	//			type: 'POST',
+	//			data: form_data,
+	//			dataType: 'json',
+	//			xhrFields: {withCredentials: true},
+	//			crossDomain: true,
+	//			success: function(result) {
+	// 				BB_Log("[Add Coupon > From > Submit]: SUCCESS");
+	//				console.log(result);
+	// 				var success = '<div class="alert alert-success"><strong>Success!</strong> The coupon has been created.</div><a href="../../" class="btn btn-default"><i class="icon-dashboard"></i> Return to the Dashboard</a>'; 
+	// 				$("#form-wrapper").html(success); 		
+	//			},
+	//			error: function(result) {
+	//				BB_Log("[Add Coupon > From > Submit]: FAILED");
+	//				BB_Log("[Add Coupon > From > Submit]: Result");
+	//				BB_Log(result);
+	//				// ERROR 
+	//				if(result.status == 404) {
+	//					BB_Error("#form-coupon-add-error", "The server is currently unavailable.");
+	//				}
+	//				else {
+	//					BB_Error("#form-coupon-add-error", result.responseJSON);
+	//				}
+	//				BB_enableForm("#form-coupon-add");
+	//			}
+	//		});	
 
 	});
 
