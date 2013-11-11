@@ -200,14 +200,11 @@ section {
 		}
 			.testimonials .customer .customer-logo img {
 				max-width: 100%;
-			}
-		.testimonials .customer .customer-logo.hokiehouse {
-			/* NO CUSTOM STYLES NECESSARY */
-		}
-		.testimonials .customer .customer-logo.pks {
-			/* SHIFTS PKS LOGO DOWN TO MATCH LARGEST LOGO */
-			padding: 48px 0px 0px 0px;
-		}
+            }
+
+             .testimonials .customer .customer-logo.yourbusiness {
+                /* NO CUSTOM STYLES NECESSARY */
+             }
 
 		.testimonials .customer blockquote {
 			border-left: 5px solid #c14132;
