@@ -111,11 +111,18 @@
 
 						<form enctype="multipart/form-data" action="http://api.dev.bargainburg.co/v1/coupons/" method="post" id="form-coupon-add" role="form" class="form-horizontal">
 
+							<!-- Merchant ID -->
 							<input type="hidden" name="coupon[merchant_id]" class="form-control" id="merchant_id">
+
 							<script type='text/javascript'>
 								console.log($.cookie("mid"));
 								$('#merchant_id').val($.cookie("mid"));
 							</script>
+
+
+							<!-- Hidden -->
+							<input type="hidden" name="coupon[hidden]" class="form-control" id="hidden" value="true">
+
 							
 							<!-- Name -->
 							<div class="form-group">
