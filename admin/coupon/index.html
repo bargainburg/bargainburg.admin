@@ -112,8 +112,21 @@
 						
 						<div id="form-coupon-edit-error"></div>
 
-						<form id="form-coupon-edit" role="form" class="form-horizontal">
+						<form enctype="multipart/form-data" action="http://api.dev.bargainburg.co/v1/coupons/" method="post" id="form-coupon-edit" role="form" class="form-horizontal">
+
+							<!-- Merchant ID -->
+							<input type="hidden" name="coupon[merchant_id]" class="form-control" id="merchant_id">
+
+							<script type='text/javascript'>
+								console.log($.cookie("mid"));
+								$('#merchant_id').val($.cookie("mid"));
+							</script>
+
+
+							<!-- Hidden -->
+							<input type="hidden" name="coupon[hidden]" class="form-control" id="hidden" value="true">
 							
+
 							<!-- Name -->
 							<div class="form-group">
 						    	<label for="name" class="col-lg-2 control-label">Name*</label>
@@ -216,7 +229,7 @@
 						    	<label class="col-lg-2 control-label">&nbsp;</label>
 							    <div class="col-lg-10">
 								    <button type="submit" class="btn btn-success btn-lg">
-								  		<i class="icon-ok"></i> Save &amp; Create Coupon
+								  		<i class="icon-ok"></i> Save Coupon
 								  	</button>
 								  	<button type="reset" class="btn btn-danger btn-lg">
 										<i class="icon-cancel"></i> Cancel
@@ -240,10 +253,10 @@
 						<h3>
 							<i class="icon-info-sign"></i> Tips
 						</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium ab cum sit excepturi atque. Amet, placeat, aliquam, id error sint accusamus iste unde non maiores laborum deleniti vero porro dolores!</p>
-						<p>At, labore, excepturi, et, voluptatibus facere error repellendus delectus suscipit accusantium temporibus quam necessitatibus adipisci vel reprehenderit rerum cum molestiae harum numquam possimus neque! Eum, reprehenderit ullam voluptatibus unde distinctio.</p>
-						<p>Amet, corporis facere sequi minima incidunt eaque non et! Velit, totam pariatur dignissimos dolorem impedit enim reiciendis saepe at ex illo inventore iusto delectus omnis neque aut dolor voluptates praesentium.</p>
-						<p>Reprehenderit, totam, quo, cumque, corrupti ratione assumenda consequatur vitae unde quae est quos cum dicta voluptates hic minus doloremque velit voluptatum sapiente odio necessitatibus et modi error harum ea rerum?</p>
+						<p><strong>Be precise.</strong> Let your customers know what the discount is right away.</p>
+						<p><strong>Choose a reasonable end date.</strong> Try to give your customers time to discover and use the coupon.</p>
+                        <p><strong>Upload a photo.</strong> A coupon designed unique to your product will gain more traction.</p>
+                        <p><strong>Details are important.</strong> If the coupon has special requirements, make sure to describe them.</p>
 					
 					</div>
 				</div>
