@@ -164,7 +164,77 @@ $(document).ready(function() {
 			// TODO: Implement This
 			///////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////
+			
 			var form_data = {};
+			var array = jQuery(this).serializeArray();
+			jQuery.each(array, function() {
+        		//form_data[this.name] = this.value || '';
+        		if (this.name == 'user[email]')
+        			form_data['user[email]'] = this.value;
+        		else if (this.name == 'user[password]') {
+        			form_data['user[password]'] = this.value;
+        			form_data['user[password_confirmation]'] = this.value;
+        		}
+    		});
+    		$.ajax({
+    			url: $.cookie("api_url")+'users/',
+    			type: 'POST',
+    			data: form_data,
+    			dataType: 'json',
+    			xhrFields: {withCredentials: true},
+    			crossDomain: true,
+    			success: function(result) {
+    				var uid = result;
+    				var address = '';
+    				form_data = {};
+    				jQuery.each(array,function() {
+    					if (this.name == 'company')
+    						form_data['merchant[name]'] = this.value;
+    					else if (this.name == 'user[email]') 
+    						form_data['merchant[email]'] = this.value;
+    					else if (this.name == 'phone')
+    						form_data['merchant[phone]'] = this.value;
+    					else if (this.name == 'company_hours')
+    						form_data['merchant[hours]'] = this.value;
+    					else if (this.name == 'website')
+    						form_data['merchant[link]'] = this.value;
+    					else if (this.name == 'comapany_category')
+    						form_data['merchant[category_id]'] = this.value;
+    					else if (this.name == 'address_street')
+    						address = address + this.value + ', ';
+    					else if (this.name == 'address_city')
+    						address = address + this.value + ', ';
+    					else if (this.name == 'address_state')
+    						address = address + this.value
+    				}
+    				form_data['merchant[description]'] = '';
+    				form_data['merchant[approved]'] = False;
+    				form_data['merchant[price_range]'] = '';
+    				form_data['merchant[created_at]'] = '';
+    				form_data['merchant[updated_at]'] = '';
+    				form_data['merchant[user_id]'] = uid;
+    				form_data['merchant[address]'] = address;
+    					
+    				$.ajax({
+    					url: $.cookie("api_url")+'merchants/',
+    					type: 'POST',
+    					data: form_data,
+    					dataType: 'json',
+    					xhrFields: {withCredentials: tru},
+    					crossDomain: true,
+    					success: function(result) {
+							var success = '<div class="alert alert-success"><strong>Success!</strong> The user has been created.</div><a href="../" class="btn btn-default"><i class="icon-dashboard"></i> Return to the Homepage</a>';
+   							$("#form-container").html(success);
+   						},
+    					error: function(result) {
+    						alert("merchant error: " + result);
+    					}
+    				});	
+    			},
+    			error: function(result) {
+    				alert("user error: " + result);
+    			}
+    		});
 		}
 
 	});
