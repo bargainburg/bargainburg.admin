@@ -169,9 +169,9 @@ $(document).ready(function() {
 			var array = jQuery(this).serializeArray();
 			jQuery.each(array, function() {
         		//form_data[this.name] = this.value || '';
-        		if (this.name == 'user[email]')
+        		if (this.name == 'username')
         			form_data['user[email]'] = this.value;
-        		else if (this.name == 'user[password]') {
+        		else if (this.name == 'password') {
         			form_data['user[password]'] = this.value;
         			form_data['user[password_confirmation]'] = this.value;
         		}
@@ -187,6 +187,12 @@ $(document).ready(function() {
     				var uid = result;
     				var address = '';
     				form_data = {};
+    				form_data['merchant[description]'] = '';
+    				form_data['merchant[approved]'] = False;
+    				form_data['merchant[price_range]'] = '';
+    				form_data['merchant[created_at]'] = '';
+    				form_data['merchant[updated_at]'] = '';
+    				form_data['merchant[user_id]'] = uid;
     				jQuery.each(array,function() {
     					if (this.name == 'company')
     						form_data['merchant[name]'] = this.value;
@@ -205,15 +211,9 @@ $(document).ready(function() {
     					else if (this.name == 'address_city')
     						address = address + this.value + ', ';
     					else if (this.name == 'address_state')
-    						address = address + this.value
-    				}
-    				form_data['merchant[description]'] = '';
-    				form_data['merchant[approved]'] = False;
-    				form_data['merchant[price_range]'] = '';
-    				form_data['merchant[created_at]'] = '';
-    				form_data['merchant[updated_at]'] = '';
-    				form_data['merchant[user_id]'] = uid;
-    				form_data['merchant[address]'] = address;
+    						address = address + this.value;
+    				});
+    				//form_data['merchant[address]'] = address;
     					
     				$.ajax({
     					url: $.cookie("api_url")+'merchants/',
@@ -232,7 +232,8 @@ $(document).ready(function() {
     				});	
     			},
     			error: function(result) {
-    				alert("user error: " + result);
+    				//alert("user error: " + JSON.stringify(result));
+    				$("#form-container").html(result);
     			}
     		});
 		}
