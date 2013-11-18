@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Edit Coupon | BargainBurg</title>
+	<title>Add A New Coupon | BargainBurg</title>
 
-	<link rel="stylesheet" type="text/css" href="../../_system/lib/bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="../../_system/lib/font-awesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="../../_system/lib/font-awesome/css/font-awesome-ie7.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/lib/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/lib/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/lib/font-awesome/css/font-awesome-ie7.min.css" />
 
 	<!-- GLOBAL (CROSS MOBILE / ADMIN) STYLES -->
-	<link rel="stylesheet" type="text/css" href="../../_system/css/global_nav.css" />
-	<link rel="stylesheet" type="text/css" href="../../_system/css/global_logo.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/css/global_nav.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/css/global_logo.css" />
 
 	<!-- CUSTOM STYLES -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="../../_system/css/BB_disableForm.css" />
-	<link rel="stylesheet" type="text/css" href="../../_system/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/css/BB_disableForm.css" />
+	<link rel="stylesheet" type="text/css" href="../../../_system/css/style.css" />
 
-	<script type="text/javascript" src="../../_system/lib/jquery/jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="../../_system/lib/jquery-cookie/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../../_system/lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../../_system/lib/jquery/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="../../../_system/lib/jquery-cookie/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../../_system/lib/bootstrap/js/bootstrap.min.js"></script>
 
 	<!-- APP CONFIG -->
-	<script type="text/javascript" src="../../_system/js/config.js"></script>
+	<script type="text/javascript" src="../../../_system/js/config.js"></script>
 
 </head>
 <body>
@@ -68,17 +68,17 @@
 			<div class="collapse navbar-collapse navbar-right" id="menu">
 				<ul class="nav navbar-nav">
 					<li>
-                        <a href="../">
+                        <a href="../../">
                             <i class="icon-dashboard"></i> Dashboard
                         </a>
                    	<li>
                    	<li>
-                        <a href="../settings/">
+                        <a href="../../settings/">
                             <i class="icon-cogs"></i> Settings
                         </a>
                    	<li>
                		<li class="nav-link-join">
-	                    <a href="../../">
+	                    <a href="../../../">
 	                        <i class="icon-lock"></i> Logout
 	                    </a>
                    	<li>
@@ -94,11 +94,8 @@
 		<header>
 			<div class="header-inner">
 				<div class="container">
-					<h1>Edit Coupon: <em id="coupon_name"></em></h1>
-					<p>
-						Make changes to this coupon such as changing its valid duration, 
-						name, description, and more.
-					</p>
+					<h1>Add a New Coupon</h1>
+					<p>Promote A New Product, Start Your Next Campaign</p>
 				</div>
 			</div>
 		</header>
@@ -110,23 +107,16 @@
 				<div class="row-fluid">
 					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="form-wrapper">
 						
-						<div id="form-coupon-edit-error"></div>
+						<div id="form-coupon-add-error"></div>
 
-						<form enctype="multipart/form-data" action="http://api.dev.bargainburg.co/v1/coupons/" method="post" id="form-coupon-edit" role="form" class="form-horizontal">
+						<form enctype="multipart/form-data" action="http://api.dev.bargainburg.co/v1/coupons/" method="post" id="form-coupon-add" role="form" class="form-horizontal">
 
-							<!-- Merchant ID -->
-							<input type="hidden" name="coupon[merchant_id]" class="form-control" id="merchant_id">
-
+							<input type="hidden" name="coupoun[merchant_id]" class="form-control" id="merchant_id">
 							<script type='text/javascript'>
 								console.log($.cookie("mid"));
-								$('#merchant_id').val($.cookie("mid"));
+								$('#merchant_id').value($.cookie("mid"));
 							</script>
-
-
-							<!-- Hidden -->
-							<input type="hidden" name="coupon[hidden]" class="form-control" id="hidden" value="true">
 							
-
 							<!-- Name -->
 							<div class="form-group">
 						    	<label for="name" class="col-lg-2 control-label">Name*</label>
@@ -187,7 +177,7 @@
 										    <div id="image_upload" class="panel-collapse collapse">
 										      	<div class="panel-body">
 													<p style="text-align:center">
-														<img id="preview" src="../../_system/img/noImage.png" height="100px" width="300px" /><br>
+														<img id="preview" src="../../../_system/img/noImage.png" height="100px" width="300px" /><br>
 													</p>
 													
 													<input type="file" id="image" name="coupon[image]" class="form-control" onchange="previewImage(this)" accept="image/*"/>
@@ -229,7 +219,7 @@
 						    	<label class="col-lg-2 control-label">&nbsp;</label>
 							    <div class="col-lg-10">
 								    <button type="submit" class="btn btn-success btn-lg">
-								  		<i class="icon-ok"></i> Save Coupon
+								  		<i class="icon-ok"></i> Save &amp; Create Coupon
 								  	</button>
 								  	<button type="reset" class="btn btn-danger btn-lg">
 										<i class="icon-cancel"></i> Cancel
@@ -257,7 +247,7 @@
 						<p><strong>Choose a reasonable end date.</strong> Try to give your customers time to discover and use the coupon.</p>
                         <p><strong>Upload a photo.</strong> A coupon designed unique to your product will gain more traction.</p>
                         <p><strong>Details are important.</strong> If the coupon has special requirements, make sure to describe them.</p>
-					
+
 					</div>
 				</div>
 				
@@ -276,8 +266,8 @@
 	<!-- /CONTENT-WRAPPER -->
 	</div>
 
-	<script type="text/javascript" src="../../_system/js/BB_UIActions.js"></script>
-	<script type="text/javascript" src="../../_system/js/app_coupon_edit.js"></script>
+	<script type="text/javascript" src="../../../_system/js/BB_UIActions.js"></script>
+	<script type="text/javascript" src="../../../_system/js/app_coupon_add.js"></script>
 
 </body>
 </html>
