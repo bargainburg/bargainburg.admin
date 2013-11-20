@@ -52,3 +52,20 @@ function ConvertFormToJSON(form, isPatch){
     
     return json;
 }
+
+
+$("#logout").click(function(event) {
+	event.preventDefault();
+	$.ajax({
+		url: $.cookie("api_url")+'logout/',
+		type: 'POST',
+		xhrFields: {withCredentials: true},
+		crossDomain: true,
+		success: function(result) {
+			window.location = '../';
+		},
+		error: function(err) {
+			alert(JSON.stringify(err));
+		}
+	});
+});

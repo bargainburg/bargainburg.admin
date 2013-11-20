@@ -234,7 +234,7 @@ $(document).ready(function() {
     							xhrFields: {withCredentials: true},
     							crossDomain: true,
     							success: function(result) {
-									window.location.href = '../admin';
+									window.location.href = './admin';
    								},
     							error: function(result) {
     								alert("merchant error: " + JSON.stringify(result));
