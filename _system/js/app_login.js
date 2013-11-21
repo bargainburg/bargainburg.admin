@@ -3,6 +3,10 @@
  * DOCUMENT READY EVENT HANDLER
  */
 $(document).ready(function () {
+
+	if($.cookie("mid") != 'null') {
+		window.location.href = '/admin';
+	} 
         
     /** 
      * HANDLE FORM: Login
