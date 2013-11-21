@@ -104,14 +104,20 @@ function bindCouponToggles() {
 	BB_Log("[Coupon List > Visibile Toggles > BIND]: STARTED");
 	$('[rel="coupon-toggle"]').bind("click", function() {
 
-		alert($(this).attr('id') + " hidden?: " + !$(this).is(":checked"));
+//		alert($(this).attr('id') + " hidden?: " + !$(this).is(":checked"));
+
+		var json = {};
+		json['coupon[hidden]'] = !$(this).is(":checked");
+		//json['_method'] = 'patch';
 
 		$.ajax({
 			url: $.cookie("api_url")+'coupons/'+$(this).attr('id'),
-			type: 'POST',
+			type: 'PUT',
 			xhrFields: {withCredentials: true},
-			data: {hidden: !$(this).is(":checked"), _method: 'patch'},
-			contentType: 'application/x-www-form-urlencoded',
+			data: json,
+			dataType: 'json',
+			crossDomain: true,
+			//contentType: 'application/x-www-form-urlencoded',
 			success: function(result) {
 				console.log("COUPON STATE TOGGLED");
 			},

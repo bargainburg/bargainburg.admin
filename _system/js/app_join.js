@@ -103,8 +103,13 @@ $(document).ready(function() {
 		}
 		// PHONE
 		if(data["phone"].length != 10) {
-			form_valid = false;
-			invalid_fields["phone"] = "Provide a valid phone number";
+			if(data["phone"].length != 12) {
+				if(data["phone"].length != 13) {
+					console.log(data["phone"].length);
+					form_valid = false;
+					invalid_fields["phone"] = "Provide a valid phone number";
+				}
+			}
 		}
 		// WEBSITE
 		if(data["website"].length < 5) {
@@ -164,7 +169,88 @@ $(document).ready(function() {
 			// TODO: Implement This
 			///////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////
+			
 			var form_data = {};
+			var array = jQuery(this).serializeArray();
+			jQuery.each(array, function() {
+        		//form_data[this.name] = this.value || '';
+        		if (this.name == 'username')
+        			form_data['user[email]'] = this.value;
+        		else if (this.name == 'password') {
+        			form_data['user[password]'] = this.value;
+        			form_data['user[password_confirmation]'] = this.value;
+        		}
+    		});
+    		$.ajax({
+    			url: $.cookie("api_url")+'users/',
+    			type: 'POST',
+    			data: form_data,
+    			dataType: 'json',
+    			xhrFields: {withCredentials: true},
+    			crossDomain: true,
+    			success: function(result) {
+    				var user_email = $("#username").val();
+    				var user_password = $("#password").val();
+    				
+    				$.ajax({
+    					url: $.cookie("api_url")+'login',
+    					type: 'POST',
+    					data: {email:user_email, password:user_password},
+    					contentType: 'application/x-www-form-urlencoded',
+    					xhrFields: {withCredentials: true},
+    					success: function (result) {
+    						var uid = result.user_id;
+    						var address = '';
+    						form_data = {};
+    						form_data['merchant[price_range]'] = 1;
+    						form_data['merchant[user_id]'] = uid;
+    						jQuery.each(array,function() {
+    							if (this.name == 'company')
+    								form_data['merchant[name]'] = this.value;
+    							else if (this.name == 'username') 
+    								form_data['merchant[email]'] = this.value;
+    							else if (this.name == 'phone')
+    								form_data['merchant[phone]'] = this.value;
+    							else if (this.name == 'company_hours')
+    								form_data['merchant[hours]'] = this.value;
+    							else if (this.name == 'website')
+    								form_data['merchant[link]'] = this.value;
+    							else if (this.name == 'company_category')
+    								form_data['merchant[category_id]'] = this.value;
+    							else if (this.name == 'address_street')
+    								address = address + this.value + ', ';
+    							else if (this.name == 'address_city')
+    								address = address + this.value + ', ';
+    							else if (this.name == 'address_state')
+    								address = address + this.value;
+    						});
+    						form_data['merchant[address]'] = address;
+    					
+    						$.ajax({
+    							url: $.cookie("api_url")+'merchants/',
+    							type: 'POST',
+    							data: form_data,
+    							dataType: 'json',
+    							xhrFields: {withCredentials: true},
+    							crossDomain: true,
+    							success: function(result) {
+									window.location.href = './admin';
+   								},
+    							error: function(result) {
+    								alert("merchant error: " + JSON.stringify(result));
+    							}
+    						});
+    					},
+    					error: function(result) {
+    						alert("login error: " + JSON.stringify(result));
+    					}
+    				});
+    			},
+    			error: function(result) {
+    				alert("user error: " + JSON.stringify(result));
+    				$("#form-container").html(result);
+    			}
+    		});
 		}
 
 	});
