@@ -14,7 +14,7 @@ function populateEditCouponForm() {
 	///////////////////////////////////////////////////////////////
 	// GET DATA
 	BB_Log("[Coupon > Form > Load Data]: STARTED");
-    $.ajax({
+    	$.ajax({
 		url: $.cookie("api_url")+'coupons/'+$.cookie("cid"),
 		type: 'GET',
 		xhrFields: {withCredentials: true},
@@ -31,6 +31,7 @@ function populateEditCouponForm() {
 					var start = data.begin_date.substring(0,10);;
 					var end   = data.end_date.substring(0,10);;
 					var description = data.description;
+					var image = data.image;
 
 					// POPULATE FORM
 					BB_Log("[Coupon > Form > Populate]: STARTED");
@@ -39,6 +40,7 @@ function populateEditCouponForm() {
 					$('option[value="'+category_id+'"]').attr('selected', "selected");
 					$('[name="coupon[begin_date]"]').val(start);
 					$('[name="coupon[end_date]"]').val(end);
+					$('[name="coupon[image]"]').val(image);
 					BB_Log("[Coupon > Form > Populate]: DONE");
 
 					BB_enableForm('#form-coupon-edit');
@@ -74,22 +76,33 @@ $(document).ready(function() {
 		window.location.href="../";
 	}
 
-
 	/**
 	 * FORM: 	EDIT COUPON
 	 * HANDLE	FORM SUBMISSION
 	 */
-//	$("#form-coupon-edit").bind("submit", function(e) {
-//		BB_Log("[Coupon > Form > Submit]: STARTED");
-//		// PREVENT DEFAULT
-//		e.preventDefault();
-//		e.stopPropagation();
-//
-//		// DISABLE FORM
-//		BB_disableForm("#fomr-coupon-edit");
-//
-//		// ATTEMP TO UPDATE COUPON
-//		form_data = ConvertFormToJSON(this, true);
+
+	$("#form-coupon-edit").bind("submit", function(e) {
+		BB_Log("[Coupon > Form > Submit]: STARTED");
+
+// Old code that disabled form until ajax call completed and then showed success/failure message, may need to use in new form redirection scheme
+//		BB_disableForm("#form-coupon-edit");
+
+                // LOG
+                BB_Log("[Add Coupon > From > Submit]: STARTED");
+
+                    // Computer the action for the form here...
+                var action = $.cookie("api_url")+'coupons/'+$.cookie("cid");
+
+                // Log the action
+                BB_Log("[Add Coupon > From > Submit]: STARTED");
+
+                // Set the action
+                    $(this).attr('action', action);
+                BB_Log("[Add Coupon > From > Submit > Action]: " + action);
+	});
+
+// Old code that disabled form until ajax call completed and then showed success/failure message, may need to use in new form redirection scheme Note that this code was included in the above submit function before
+//		var form_data = ConvertFormToJSON(this, true);
 //
 //		BB_Log("[Edit Cookie > Form > Submit]: STARTED");
 //		$.ajax({
@@ -116,8 +129,6 @@ $(document).ready(function() {
 //				BB_enableForm("#form-coupon-edit");
 //			}
 //		});	
-
-	});
 
 	/**
 	 * FORM: 	EDIT COUPON

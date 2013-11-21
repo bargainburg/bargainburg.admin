@@ -112,7 +112,10 @@
 						
 						<div id="form-coupon-edit-error"></div>
 
-						<form enctype="multipart/form-data" action="http://api.dev.bargainburg.co/v1/coupons/" method="post" id="form-coupon-edit" role="form" class="form-horizontal">
+						<form enctype="multipart/form-data" method="post" id="form-coupon-edit" role="form" class="form-horizontal">
+
+							<!-- Patch -->
+							<input type="hidden" name="_method" class="form-control" id="_method" value="patch">
 
 							<!-- Merchant ID -->
 							<input type="hidden" name="coupon[merchant_id]" class="form-control" id="merchant_id">
@@ -122,10 +125,6 @@
 								$('#merchant_id').val($.cookie("mid"));
 							</script>
 
-
-							<!-- Hidden -->
-							<input type="hidden" name="coupon[hidden]" class="form-control" id="hidden" value="true">
-							
 
 							<!-- Name -->
 							<div class="form-group">
