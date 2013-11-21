@@ -21,7 +21,7 @@ $(document).ready(function() {
 // Old code that disabled form until ajax call completed and then showed success/failure message, may need to use in new form redirection scheme
 //		BB_disableForm("#form-coupon-add");
 	
-		// ATTEMPT SUMBISSION
+		// LOG
 		BB_Log("[Add Coupon > From > Submit]: STARTED");
 
 	    	// Computer the action for the form here...
