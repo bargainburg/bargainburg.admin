@@ -5,7 +5,7 @@
 $(document).ready(function () {
 
 	if($.cookie("mid") != 'null') {
-		window.location.href = '/admin';
+		window.location.href = './admin';
 	} 
         
     /** 
