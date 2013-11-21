@@ -62,6 +62,7 @@ $("#logout").click(function(event) {
 		xhrFields: {withCredentials: true},
 		crossDomain: true,
 		success: function(result) {
+			$.cookie("mid", null, {path: '/'});
 			window.location = '../';
 		},
 		error: function(err) {
