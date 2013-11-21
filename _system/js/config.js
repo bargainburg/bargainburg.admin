@@ -24,6 +24,7 @@
 	
 	// DEVELOPMENT VALUE
 	$.cookie("api_url", "http://api.dev.bargainburg.co/v1/");
+	$.cookie("url", "http://dev.bargainburg.co/");
 
 	// PRODUCTION VALUE
 	//$.cookie("api_url", "http://api.bargainburg.co/v1/");
