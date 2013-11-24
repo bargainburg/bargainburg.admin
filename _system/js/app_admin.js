@@ -195,7 +195,9 @@ $(document).ready(function() {
 		// RESET COUPON ID COOKIE
 		// so that ./coupon will kick the user back as we
 		// do not know which coupon he wants to edit
-		$.cookie("cid", null);
+
+//		This line was commented out so that issue #8 on admin could be resolved
+//		$.cookie("cid", null);
 
 		// PULL DATA & RENDER ADMIN PANEL
 		getMerchantData(renderMerchantData);
