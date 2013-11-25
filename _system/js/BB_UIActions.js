@@ -64,6 +64,10 @@ $("#logout").click(function(event) {
 		success: function(result) {
 			$.cookie("mid", null, {paht: '/'});
 			$.cookie("mid", null, {path: '/home'});
+
+//			This line was added so that issue #8 on admin could be resolved
+			$.cookie("cid", null, {path: '/'});
+
 			window.location = '../';
 		},
 		error: function(err) {
