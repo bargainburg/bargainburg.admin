@@ -46,8 +46,8 @@
 	//////////////////////////////////////////////////////////////////
 	var url = window.location.href;
 	if(url.substring(url.length-5, url.length-1) == "home") {
-		$.cookie("mid", null);
-		$.cookie("cid", null);
+		//$.cookie("mid", null);
+		//$.cookie("cid", null);
 	}
 
 	//////////////////////////////////////////////////////////////////
