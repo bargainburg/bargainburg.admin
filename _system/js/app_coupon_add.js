@@ -17,7 +17,50 @@ $(document).ready(function() {
 	 */
 	$("#form-coupon-add").bind("submit", function(e) {
 		// FORM LOADING SCREEN
-
+                               BB_Log("[Add Coupon > Form > Submit]");
+                               
+                               var name=document.forms["form-coupon-add"]["coupon[name]"].value;
+                               if (name==null || name=="")
+                               {
+                               BB_Error("#form-coupon-add-error", "You must enter a coupon name");
+                               e.preventDefault();
+                               e.stopPropagation();
+                               return false;
+                               }
+                               var sDate=document.forms["form-coupon-add"]["begin_date"].value;
+                               if (sDate==null || sDate=="")
+                               {
+                               BB_Error("#form-coupon-add-error", "You must enter a start date");
+                               e.preventDefault();
+                               e.stopPropagation();
+                               return false;
+                               }
+                               var eDate=document.forms["form-coupon-add"]["end_date"].value;
+                               if (eDate==null || eDate=="")
+                               {
+                               BB_Error("#form-coupon-add-error", "You must enter a end date");
+                               e.preventDefault();
+                               e.stopPropagation();
+                               return false;
+                               }
+                               
+                               var description=document.forms["form-coupon-add"]["coupon_description"].value;
+                               if (description==null || description=="")
+                               {
+                               BB_Error("#form-coupon-add-error", "You must enter a description");
+                               e.preventDefault();
+                               e.stopPropagation();
+                               return false;
+                               }
+                               
+                               //e.preventDefault();
+                               var sure = confirm("Your coupon will be submitted");
+                               if(sure) {
+                               //$("#form-coupon-add").submit();
+                               window.location.href = "../../";
+                               }
+                               
+                
 // Old code that disabled form until ajax call completed and then showed success/failure message, may need to use in new form redirection scheme
 //		BB_disableForm("#form-coupon-add");
 	
@@ -33,6 +76,7 @@ $(document).ready(function() {
 		// Set the action
 	    	$(this).attr('action', action);
 		BB_Log("[Add Coupon > From > Submit > Action]: " + action);
+        window.location.href = "../../";
 	});
 
 // Old code that disabled form until ajax call completed and then showed success/failure message, may need to use in new form redirection scheme Note that this code was included in the above submit function before
