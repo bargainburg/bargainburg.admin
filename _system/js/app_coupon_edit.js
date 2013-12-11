@@ -14,7 +14,7 @@ function populateEditCouponForm() {
 	///////////////////////////////////////////////////////////////
 	// GET DATA
 	BB_Log("[Coupon > Form > Load Data]: STARTED");
-    $.ajax({
+    	$.ajax({
 		url: $.cookie("api_url")+'coupons/'+$.cookie("cid"),
 		type: 'GET',
 		xhrFields: {withCredentials: true},
@@ -31,6 +31,7 @@ function populateEditCouponForm() {
 					var start = data.begin_date.substring(0,10);;
 					var end   = data.end_date.substring(0,10);;
 					var description = data.description;
+					var image = data.image;
 
 					// POPULATE FORM
 					BB_Log("[Coupon > Form > Populate]: STARTED");
@@ -39,6 +40,7 @@ function populateEditCouponForm() {
 					$('option[value="'+category_id+'"]').attr('selected', "selected");
 					$('[name="coupon[begin_date]"]').val(start);
 					$('[name="coupon[end_date]"]').val(end);
+					$('[name="coupon[image]"]').val(image);
 					BB_Log("[Coupon > Form > Populate]: DONE");
 
 					BB_enableForm('#form-coupon-edit');
@@ -74,50 +76,59 @@ $(document).ready(function() {
 		window.location.href="../";
 	}
 
-
 	/**
 	 * FORM: 	EDIT COUPON
 	 * HANDLE	FORM SUBMISSION
 	 */
+
 	$("#form-coupon-edit").bind("submit", function(e) {
 		BB_Log("[Coupon > Form > Submit]: STARTED");
-		// PREVENT DEFAULT
-		e.preventDefault();
-		e.stopPropagation();
 
-		// DISABLE FORM
-		BB_disableForm("#fomr-coupon-edit");
+// Old code that disabled form until ajax call completed and then showed success/failure message, may need to use in new form redirection scheme
+//		BB_disableForm("#form-coupon-edit");
 
-		// ATTEMP TO UPDATE COUPON
-		form_data = ConvertFormToJSON(this, true);
+                // LOG
+                BB_Log("[Add Coupon > From > Submit]: STARTED");
 
-		BB_Log("[Edit Cookie > Form > Submit]: STARTED");
-		$.ajax({
-			url: $.cookie("api_url")+'coupons/'+$.cookie("cid"),
-			type: 'POST',
-			data: form_data,
-			dataType: 'json',
-			xhrFields: {withCredentials: true},
-			crossDomain: true,
- 			success: function(result) {
- 				BB_Log("[Coupon > Form > Submit]: SUCCESS");
- 				var success = '<div class="alert alert-success"><strong>Success!</strong> The coupon changes have been saved.</div><a href="../" class="btn btn-default"><i class="icon-dashboard"></i> Return to the Dashboard</a>'; 
- 				$("#form-wrapper").html(success); 		
-			},
-			error: function(result) {
-				BB_Log("[Coupon > Form > Submit]: FAILED");
-				// ERROR 
-				if(result.status == 404) {
-					BB_Error("#form-coupon-edit-error", "The server is currently unavailable.");
-				}
-				else {
-					BB_Error("#form-coupon-edit-error", result.responseJSON);
-				}
-				BB_enableForm("#form-coupon-edit");
-			}
-		});	
+                    // Computer the action for the form here...
+                var action = $.cookie("api_url")+'coupons/'+$.cookie("cid");
 
+                // Log the action
+                BB_Log("[Add Coupon > From > Submit]: STARTED");
+
+                // Set the action
+                    $(this).attr('action', action);
+                BB_Log("[Add Coupon > From > Submit > Action]: " + action);
 	});
+
+// Old code that disabled form until ajax call completed and then showed success/failure message, may need to use in new form redirection scheme Note that this code was included in the above submit function before
+//		var form_data = ConvertFormToJSON(this, true);
+//
+//		BB_Log("[Edit Cookie > Form > Submit]: STARTED");
+//		$.ajax({
+//			url: $.cookie("api_url")+'coupons/'+$.cookie("cid"),
+//			type: 'POST',
+//			data: form_data,
+//			dataType: 'json',
+//			xhrFields: {withCredentials: true},
+//			crossDomain: true,
+// 			success: function(result) {
+// 				BB_Log("[Coupon > Form > Submit]: SUCCESS");
+// 				var success = '<div class="alert alert-success"><strong>Success!</strong> The coupon changes have been saved.</div><a href="../" class="btn btn-default"><i class="icon-dashboard"></i> Return to the Dashboard</a>'; 
+// 				$("#form-wrapper").html(success); 		
+//			},
+//			error: function(result) {
+//				BB_Log("[Coupon > Form > Submit]: FAILED");
+//				// ERROR 
+//				if(result.status == 404) {
+//					BB_Error("#form-coupon-edit-error", "The server is currently unavailable.");
+//				}
+//				else {
+//					BB_Error("#form-coupon-edit-error", result.responseJSON);
+//				}
+//				BB_enableForm("#form-coupon-edit");
+//			}
+//		});	
 
 	/**
 	 * FORM: 	EDIT COUPON
