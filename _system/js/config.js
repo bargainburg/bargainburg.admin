@@ -27,7 +27,8 @@
 	$.cookie("url", "http://dev.bargainburg.co/");
 
 	// PRODUCTION VALUE
-	//$.cookie("api_url", "http://api.bargainburg.co/v1/");
+	$.cookie("api_url", "http://api.bargainburg.co/v1/");
+	$.cookie("url", "http://bargainburg.co/");
 
 	//////////////////////////////////////////////////////////////////
 	// FLAG_DEBUG													//
