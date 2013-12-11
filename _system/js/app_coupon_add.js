@@ -11,11 +11,20 @@ $(document).ready(function() {
 		window.location.href="../../";
 	}
 
+                  $("#submit").click(function(){
+                                     window.setInterval(foo, 100);
+                                     });
+                  
+                  function foo(){
+                  
+                  window.location.href = "/";
+                  
+                  }
 	/**
 	 * HANDLE SUBMIT BUTTON
 	 * attempt to create coupon
 	 */
-	$("#form-coupon-add").bind("submit", function(e) {
+	$("#form-coupon-add").submit(function(e) {
 		// FORM LOADING SCREEN
                                BB_Log("[Add Coupon > Form > Submit]");
                                
@@ -54,29 +63,31 @@ $(document).ready(function() {
                                }
                                
                                //e.preventDefault();
-                               var sure = confirm("Your coupon will be submitted");
-                               if(sure) {
+                              //var sure = confirm("Your coupon will be submitted");
+                               //if(sure) {
                                //$("#form-coupon-add").submit();
+                                 sendContactForm();
                                window.location.href = "../../";
-                               }
+                                 return false;
+                              //}
                                
                 
 // Old code that disabled form until ajax call completed and then showed success/failure message, may need to use in new form redirection scheme
 //		BB_disableForm("#form-coupon-add");
 	
 		// LOG
-		BB_Log("[Add Coupon > From > Submit]: STARTED");
-
-	    	// Computer the action for the form here...
-		var action = $.cookie("api_url")+'coupons/';
-
-		// Log the action
-		BB_Log("[Add Coupon > From > Submit]: STARTED");
-
-		// Set the action
-	    	$(this).attr('action', action);
-		BB_Log("[Add Coupon > From > Submit > Action]: " + action);
-        window.location.href = "../../";
+//		BB_Log("[Add Coupon > From > Submit]: STARTED");
+//
+//	    	// Computer the action for the form here...
+//		var action = $.cookie("api_url")+'coupons/';
+//
+//		// Log the action
+//		BB_Log("[Add Coupon > From > Submit]: STARTED");
+//
+//		// Set the action
+//	    	$(this).attr('action', action);
+//		BB_Log("[Add Coupon > From > Submit > Action]: " + action);
+//        window.location.href = "../../";
 	});
 
 // Old code that disabled form until ajax call completed and then showed success/failure message, may need to use in new form redirection scheme Note that this code was included in the above submit function before
